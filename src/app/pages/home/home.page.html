@@ -16,5 +16,7 @@
   <div id="container">
     <h1>Das ist der Fragebogen!</h1>
     <p>{{ausgabe}}</p>
+    <p>Anzahl der Fragen: {{data.currentQuiz.questions.length}}</p>
+    <ion-button shape="round" expand="block" fill="outline" color="primary" (click)="showList()">Fragen bearbeiten</ion-button>
   </div>
 </ion-content>
