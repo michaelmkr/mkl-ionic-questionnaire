@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {DataService} from '../../bo/data.service';
+import {Question} from '../../bo/interfaces';
 
 @Component({
   selector: 'app-question',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionPage implements OnInit {
 
-  constructor() { }
+  public question: Question;
+
+  constructor(private data: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.question = this.data.getQuestion(id);
   }
 
 }

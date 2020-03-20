@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>QuestionList</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Questions</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let q of data.currentQuiz.questions" (click)="show(q.id)">
+      <ion-label>
+        {{q.title}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

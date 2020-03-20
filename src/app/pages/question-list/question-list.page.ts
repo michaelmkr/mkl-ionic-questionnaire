@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../bo/data.service';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-question-list',
-  templateUrl: './question-list.page.html',
-  styleUrls: ['./question-list.page.scss'],
+    selector: 'app-question-list',
+    templateUrl: './question-list.page.html',
+    styleUrls: ['./question-list.page.scss'],
 })
 export class QuestionListPage implements OnInit {
 
-  constructor() { }
+    constructor(public data: DataService, public router: Router) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    public show(id: string) {
+        this.router.navigateByUrl('/question/' + id);
+    }
 
 }
