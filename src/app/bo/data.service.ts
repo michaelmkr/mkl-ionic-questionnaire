@@ -1,9 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataService {
 
-  constructor() { }
+    constructor() {
+
+
+    }
+
+    public getText(): string {
+        return 'This is our super awesome text from data.service.ts';
+    }
 }
