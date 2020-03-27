@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Question, Quiz} from './interfaces';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,7 @@ export class DataService {
 
     constructor() {
         this.currentQuiz.questions.push({
-            id: '1',
+            id: uuidv4(),
             title: 'How much equals 1+2?',
             a1: '1',
             a2: '2',
@@ -17,7 +18,7 @@ export class DataService {
             correct: 3
         });
         this.currentQuiz.questions.push({
-            id: '2',
+            id: uuidv4(),
             title: 'How much equals 2+2?',
             a1: '1',
             a2: '2',
@@ -59,6 +60,12 @@ export class DataService {
             a4: '',
             correct: 1
         };
+    }
+
+    public addQuestion(q: Question) {
+        q.id = uuidv4();
+        this.currentQuiz.questions.push(q);
+        this.save();
     }
 
     public load() {
