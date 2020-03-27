@@ -39,6 +39,31 @@ export class DataService {
 
     public getQuestion(id: string): Question {
         return this.currentQuiz.questions.find(q => q.id === id);
+    }
 
+    public deleteQuestion(q: Question) {
+        const index = this.currentQuiz.questions.indexOf(q);
+        if (index > -1) {
+            this.currentQuiz.questions.splice(index);
+        }
+        this.save();
+    }
+
+    public newQuestion(): Question {
+        return {
+            id: '',
+            title: '',
+            a1: '',
+            a2: '',
+            a3: '',
+            a4: '',
+            correct: 1
+        };
+    }
+
+    public load() {
+    }
+
+    public save() {
     }
 }

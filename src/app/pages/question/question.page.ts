@@ -16,7 +16,11 @@ export class QuestionPage implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.question = this.data.getQuestion(id);
+    if (id !== '0') {
+      this.question = this.data.getQuestion(id);
+    } else {
+      this.question = this.data.newQuestion();
+    }
   }
 
   setCorrect(theRightOne: number) {
