@@ -19,4 +19,8 @@ export class QuestionPage implements OnInit {
     this.question = this.data.getQuestion(id);
   }
 
+  setCorrect(theRightOne: number) {
+    this.question.correct = theRightOne;
+  }
+
 }
