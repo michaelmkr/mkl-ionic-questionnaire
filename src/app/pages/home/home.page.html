@@ -1,23 +1,54 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Ionic Questionnaire
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Ionic Questionnaire
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">CCI Quiz App</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">CCI Quiz App</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <h1>We have super awesome questions for you!</h1>
-    <p>{{ausgabe}}</p>
-    <p>Number of Questions: {{data.currentQuiz.questions.length}}</p>
-    <ion-button shape="round" expand="block" fill="outline" color="primary" (click)="showList()">Edit Questions</ion-button>
-    <ion-button shape="round" expand="block" fill="outline" color="primary" (click)="startQuiz()">Start the Quiz</ion-button>
-  </div>
+    <div id="container">
+        <div>
+            <h1>Current Quiz:</h1>
+            <ion-item>
+                <ion-label>Quiz ID:</ion-label>
+                <ion-input type="text">{{data.currentQuiz.id}}</ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Quiz Name:</ion-label>
+                <ion-input type="text" [(ngModel)]="data.currentQuiz.quizName"></ion-input>
+            </ion-item>
+            <ion-button shape="round" expand="block" fill="outline" color="primary"
+                        (click)="data.saveQuizToFirebase()">
+                Save Quiz to Firebase
+            </ion-button>
+        </div>
+
+        <div>
+            <h1>We have super awesome questions for you!</h1>
+            <p>Number of Questions: {{data.currentQuiz.questions.length}}</p>
+            <ion-button shape="round" expand="block" fill="outline" color="primary" (click)="showList()">Edit Questions
+            </ion-button>
+            <ion-button shape="round" expand="block" fill="outline" color="primary" (click)="startQuiz()">Start the Quiz
+            </ion-button>
+        </div>
+
+        <div>
+            <h1>Modify Quizzes in Firebase</h1>
+            <ion-button shape="round" expand="block" fill="outline" color="primary"
+                        (click)="data.createQuiz()">
+                Create New Quiz
+            </ion-button>
+            <ion-button shape="round" expand="block" fill="outline" color="primary"
+                        (click)="showQuizList()">
+                Switch/Load Firebase Quizzes
+            </ion-button>
+        </div>
+    </div>
 </ion-content>

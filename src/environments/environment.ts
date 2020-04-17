@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyD6mJMKzBOK1UdbbBQYWpE_rKfTXgSluP8',
+    authDomain: 'cci-fragebogen.firebaseapp.com',
+    databaseURL: 'https://cci-fragebogen.firebaseio.com',
+    projectId: 'cci-fragebogen',
+    storageBucket: 'cci-fragebogen.appspot.com',
+    messagingSenderId: '663826910401'
+  }
 };
 
 /*

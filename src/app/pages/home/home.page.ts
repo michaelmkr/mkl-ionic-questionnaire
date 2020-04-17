@@ -9,14 +9,17 @@ import {Router} from '@angular/router';
 })
 export class HomePage {
 
-    public ausgabe: string;
+    public output: string;
 
     constructor(private data: DataService, private router: Router) {
-        this.ausgabe = this.data.getText();
+        this.output = this.data.getText();
     }
 
   public showList() {
       this.router.navigateByUrl('/question-list');
+  }
+  public showQuizList() {
+      this.router.navigateByUrl('/quiz-list');
   }
 
     public startQuiz() {
