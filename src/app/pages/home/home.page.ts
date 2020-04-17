@@ -19,4 +19,8 @@ export class HomePage {
       this.router.navigateByUrl('/question-list');
   }
 
+    public startQuiz() {
+        this.router.navigateByUrl('/quiz');
+    }
+
 }
